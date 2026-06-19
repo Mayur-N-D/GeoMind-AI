@@ -1,80 +1,312 @@
-# `google/mcp`
+# 🌍 GeoMind AI - Location Intelligence Agent
 
-This repository contains a list of Google's official Model Context Protocol (MCP) servers, guidance on how to deploy MCP servers to Google Cloud, and examples to get started.
+An Agent Development Kit (ADK) powered Location Intelligence Agent that enables geographic analysis, business intelligence discovery, spatial data exploration, and map-based visualization through natural language interactions.
 
-## ⚡ Google MCP Servers
+Built using Google Agent Development Kit (ADK), Gemini 3 Pro, Vertex AI, MCP Servers for BigQuery and Google Maps, and Google Cloud Platform.
 
-### **Remote MCP servers** 
+---
 
-These [remote MCP servers are managed by Google](https://docs.cloud.google.com/mcp/overview), and are available [via endpoint](https://docs.cloud.google.com/mcp/enable-disable-mcp-servers). Below are a few key remote servrs. For a comprehensive list of all remote MCP servers managed by Google in General Availability (GA) and public preview [**vist the supported products pager**](https://docs.cloud.google.com/mcp/supported-products) 
+## 🚀 Overview
 
+GeoMind AI helps users analyze geographic and business datasets using natural language queries.
 
-* [**AlloyDB for PostgreSQL**](https://docs.cloud.google.com/alloydb/docs/ai/use-alloydb-mcp) 
-* [**BigQuery**](https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp) 
-* [**Bigtable**](https://docs.cloud.google.com/bigtable/docs/use-bigtable-mcp) 
-* [**Cloud Resource Manager**](https://docs.cloud.google.com/resource-manager/reference/mcp)
-* [**Cloud SQL for MySQL**](https://docs.cloud.google.com/sql/docs/mysql/use-cloudsql-mcp) 
-* [**Cloud SQL for PostgreSQL**](https://docs.cloud.google.com/sql/docs/postgres/use-cloudsql-mcp) 
-* [**Cloud SQL for SQL Server**](https://docs.cloud.google.com/sql/docs/sqlserver/use-cloudsql-mcp)
-* [**Compute Engine (GCE)**](https://docs.cloud.google.com/compute/docs/reference/mcp) 
-* [**Developer Knowledge API (Google Developer Documentation)**](https://developers.google.com/knowledge/mcp) 
-* [**Firestore**](https://docs.cloud.google.com/firestore/native/docs/use-firestore-mcp)
-* [**Google Maps (Grounding Lite)**](https://developers.google.com/maps/ai/grounding-lite)  
-* [**Google Security Operations (Chronicle)**](https://docs.cloud.google.com/chronicle/docs/reference/mcp)
-* [**Kubernetes Engine (GKE)**](https://docs.cloud.google.com/kubernetes-engine/docs/reference/mcp)   
-* [**Spanner**](https://docs.cloud.google.com/spanner/docs/use-spanner-mcp)
-* [**Cloud Run**](https://docs.cloud.google.com/run/docs/reference/mcp) (GA)
-* [**Cloud Storage**](https://docs.cloud.google.com/storage/docs/reference/mcp)
+The system combines Google ADK with MCP Servers to orchestrate interactions between BigQuery datasets and Google Maps services, allowing users to discover location-based insights without writing SQL queries manually.
 
+Using Gemini 3 Pro and Vertex AI, the agent can understand user intent, retrieve relevant datasets, execute analytical queries, and visualize results directly on Google Maps.
 
-### **Open-source MCP servers**  
+The platform is capable of identifying high foot-traffic regions, analyzing demographic trends, exploring sales patterns, evaluating business opportunities, and generating actionable location intelligence in real time.
 
-You can run these open-source MCP servers locally, or deploy them to Google Cloud (see below).  
+One example query asks:
 
-* [**Google Workspace**](https://github.com/gemini-cli-extensions/workspace), including Google Docs, Sheets, Slides, Calendar, and Gmail. (Gemini CLI extension)  
-* [**Firebase**](https://github.com/gemini-cli-extensions/firebase/) (Gemini CLI extension)  
-* [**Cloud Run**](https://github.com/GoogleCloudPlatform/cloud-run-mcp) (Gemini CLI Extension)
-* [**Go**](https://go.dev/gopls/features/mcp) 
-* [**Google Analytics**](https://github.com/googleanalytics/google-analytics-mcp)  
-* [**MCP Toolbox for Databases**](https://github.com/googleapis/genai-toolbox), including BigQuery, Cloud SQL, AlloyDB, Spanner, Firestore, and more.  
-* [**Google Cloud Storage**](https://github.com/googleapis/gcloud-mcp/tree/main/packages/storage-mcp)  
-* [**Genmedia**](https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio/tree/main/experiments/mcp-genmedia), including Imagen and Veo models.  
-* [**Kubernetes Engine (GKE)**](https://github.com/GoogleCloudPlatform/gke-mcp)  
-* [**Google Cloud Security**](https://github.com/google/mcp-security), including Security Command Center, Chronicle, and more.  
-* [**gcloud CLI**](https://github.com/googleapis/gcloud-mcp/tree/main/packages/gcloud-mcp)  
-* [**Google Cloud Observability**](https://github.com/googleapis/gcloud-mcp/tree/main/packages/observability-mcp)
-* [**Flutter/Dart**](https://github.com/dart-lang/ai/tree/main/pkgs/dart_mcp_server)
-* [**Google Maps Platform Code Assist toolkit**](https://developers.google.com/maps/ai/mcp)
-* [**Chrome DevTools**](https://github.com/ChromeDevTools/chrome-devtools-mcp)
+> Which ZIP code in Los Angeles has the highest morning foot traffic?
 
-## 💻 Examples
+The agent automatically retrieves relevant data from BigQuery, performs spatial analysis, identifies the optimal location, and provides a Google Maps visualization of the result.
 
-* [**Launch My Bakery**](http://github.com/google/mcp/tree/main/examples/launchmybakery) (`/examples/launchmybakery`)**:** A sample agent built with Agent Development Kit (ADK) that uses remote MCP servers for Google Maps and BigQuery.
-* [**Allstrides**](https://github.com/google/mcp/tree/main/examples/allstrides) (`/examples/allstrides`)**:** A sample app migrated from local to Cloud using remote MCP servers for Developer Knowledge, Cloud SQL and Cloud Run 
+---
+
+## 🏗 Architecture
+
+![Architecture](screenshots/architecture_diagram.png)
 
 
-## 📙 Resources
+---
 
-### **Run an MCP server in Google Cloud** 
+## ✨ Features
 
-* [Documentation \- Host MCP Servers on Cloud Run](https://docs.cloud.google.com/run/docs/host-mcp-servers)  
-* Blog Post \- [Build and Deploy a Remote MCP Server to Google Cloud Run in Under 10 Minutes](https://cloud.google.com/blog/topics/developers-practitioners/build-and-deploy-a-remote-mcp-server-to-google-cloud-run-in-under-10-minutes)  
-* [MCP Toolbox for Databases \- Deploy to Cloud Run](https://googleapis.github.io/genai-toolbox/how-to/deploy_toolbox/), [Deploy to Google Kubernetes Engine (GKE)](https://googleapis.github.io/genai-toolbox/how-to/deploy_gke/)  
-* [Blog post - Announcing MCP support for Apigee](https://cloud.google.com/blog/products/ai-machine-learning/mcp-support-for-apigee) (Turnkey MCP hosting for Apigee-hosted APIs)  
-* “Tools Make an Agent” \- [Blog](https://cloud.google.com/blog/topics/developers-practitioners/tools-make-an-agent-from-zero-to-assistant-with-adk) and [Codelab](https://codelabs.developers.google.com/codelabs/cloud-run/tools-make-an-agent)  
-* Codelab \- [How to deploy a secure MCP server on Cloud Run](https://codelabs.developers.google.com/codelabs/cloud-run/how-to-deploy-a-secure-mcp-server-on-cloud-run#0)  
-* [Codelab \- "Agent Verse" \- Architecting Multi-agent Systems](http://goo.gle/summoner) 
+* Natural Language Geographic Queries
+* Google ADK Agent Framework
+* BigQuery Dataset Exploration
+* Google Maps Integration
+* MCP Tool Orchestration
+* Foot Traffic Analytics
+* Demographic Intelligence
+* Business Opportunity Discovery
+* SQL Query Generation
+* Spatial Data Exploration
+* Vertex AI Powered Reasoning
+* Real-Time Location Intelligence
+* Interactive Map Grounding
+* ADK Event Tracing Support
 
-## 🤝 Contributing
+---
 
-We welcome contributions to this repository, including bug reports, feature requests, documentation improvements, and code contributions. Please see our [Contributing Guidelines](https://github.com/google/mcp/blob/main/CONTRIBUTING.md) to get started.
+## 📂 Project Structure
 
-## 📃 License
+```text
+GeoMind-AI/
+│
+├── mcp/
+│   └── examples/
+│       └── launchmybakery/
+│
+├── adk_agent/
+│   ├── __init__.py
+│   ├── agent.py
+│   └── tools.py
+│
+├── data/
+│   ├── demographics.csv
+│   ├── bakery_prices.csv
+│   ├── sales_history_weekly.csv
+│   └── foot_traffic.csv
+│
+├── screenshots/
+│   ├── architecture_diagram.png
+│   ├── adk_workflow.png
+│   ├── query_execution.png
+│   ├── maps_visualization.png
+│   ├── cloud_shell.png
+│   └── event_trace.png
+│
+├── requirements.txt
+├── README.md
+├── LICENSE
+└── .gitignore
+```
 
-This project is licensed under the Apache 2.0 License \- see the [LICENSE](https://github.com/google/mcp/blob/main/LICENSE) file for details.
+---
 
-## Disclaimers
+## 🛠 Tech Stack
 
-This is not an officially supported Google product. This project is intended for demonstration purposes only.
+### Framework
 
-This project is not eligible for the [Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security).  
+* Google Agent Development Kit (ADK)
+
+### AI Models
+
+* Gemini 3 Pro
+* Vertex AI
+
+### Protocol
+
+* Model Context Protocol (MCP)
+
+### Cloud Services
+
+* Google Cloud Platform (GCP)
+* Google BigQuery
+* Google Maps Platform
+
+### Programming Language
+
+* Python 3.12+
+
+### Analytics
+
+* SQL
+* Geographic Data Analysis
+* Spatial Intelligence
+
+---
+
+## 🧪 Example 1
+
+### Input
+
+```text
+Which ZIP code in Los Angeles has the highest morning foot traffic?
+```
+
+### Output
+
+```text
+ZIP Code: 90403
+
+Location:
+Santa Monica, California
+
+Morning Foot Traffic Score:
+100.0
+
+Analysis:
+Santa Monica (90403) exhibits the highest
+morning foot traffic score within the dataset.
+
+Maps Link:
+Displayed through Google Maps integration.
+```
+
+---
+
+## 🧪 Example 2
+
+### Input
+
+```text
+Find regions with high customer activity and favorable business potential.
+```
+
+### Output
+
+```text
+Recommended Locations:
+
+1. Santa Monica
+2. Downtown Los Angeles
+3. Pasadena
+
+Reason:
+Strong foot traffic patterns, demographic indicators,
+and business activity trends suggest favorable
+commercial opportunities.
+```
+
+---
+
+## 🧪 Example 3
+
+### Input
+
+```text
+Show me the demographic and sales trends for high-performing bakery locations.
+```
+
+### Output
+
+```text
+Dataset Analysis Completed
+
+Insights:
+- Strong population density
+- Higher average sales volume
+- Consistent customer traffic
+- Favorable pricing patterns
+
+Recommendation:
+Prioritize locations with strong traffic-to-competition ratios.
+```
+
+---
+
+## 📸 Screenshots
+
+### ADK Agent Workflow
+
+![Workflow](screenshots/mcp1a.png)
+
+---
+
+### BigQuery Query Execution
+
+![Query Execution](screenshots/mcp2.png)
+
+---
+
+### Google Maps Visualization
+
+![Maps Visualization](screenshots/mcp1b.png)
+
+---
+
+### Cloud Shell Development
+
+![Cloud Shell](screenshots/mcp3.png)
+
+---
+
+
+## 🔄 Workflow
+
+1. User submits a location intelligence query.
+2. Google ADK Agent interprets the request.
+3. Gemini 3 Pro determines the required tools.
+4. MCP Server connects to BigQuery datasets.
+5. SQL queries are executed against location data.
+6. Results are analyzed and summarized.
+7. Google Maps MCP Server visualizes findings.
+8. Actionable geographic insights are returned to the user.
+
+---
+
+## 🎯 Use Cases
+
+### Location Intelligence
+
+Analyze geographic datasets using natural language.
+
+### Retail Site Selection
+
+Identify optimal business locations using demographic and traffic insights.
+
+### Market Analysis
+
+Evaluate customer density and commercial opportunities.
+
+### Urban Planning
+
+Explore demographic and geographic trends.
+
+### Business Intelligence
+
+Combine sales, pricing, and population data for strategic decision-making.
+
+### Spatial Analytics
+
+Perform map-based analysis without manually writing SQL.
+
+---
+
+## 📈 Future Enhancements
+
+* Multi-Agent Collaboration
+* Real-Time Traffic Data Integration
+* Predictive Location Forecasting
+* Interactive Geographic Dashboards
+* Advanced Geospatial Analytics
+* RAG-Based Knowledge Retrieval
+* Historical Trend Forecasting
+* Business Recommendation Engine
+* Cloud Deployment on Cloud Run
+* Multi-City Dataset Support
+
+---
+
+## 👨‍💻 Author
+
+### Mayur Dharwadkar
+
+Computer Science Engineering Student
+
+GitHub:
+https://github.com/Mayur-N-D
+
+LinkedIn:
+https://www.linkedin.com/in/mayur-dharwadkar-937125397/
+
+---
+
+## ⭐ Acknowledgements
+
+* Google Agent Development Kit (ADK)
+* Google Gemini
+* Vertex AI
+* Google BigQuery
+* Google Maps Platform
+* Google Cloud Platform
+* Python Open Source Community
+
+---
+
+## 📜 License
+
+MIT License
